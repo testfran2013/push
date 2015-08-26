@@ -31,11 +31,12 @@ self.addEventListener('notificationclick', function(event) {
   }).then(function(clientList) {
     for (var i = 0; i < clientList.length; i++) {
       var client = clientList[i];
+      alert("client.url =="+client.url);
       if (client.url == '/' && 'focus' in client)
         return client.focus();
     }
     if (clients.openWindow)
-      return clients.openWindow('http://www.google.com');
+      return clients.openWindow('/);
   }));
 
 });
