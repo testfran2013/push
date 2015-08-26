@@ -34,8 +34,8 @@ self.addEventListener('notificationclick', function(event) {
       if (client.url == '/' && 'focus' in client)
         return client.focus();
     }
+    console.log('clients.openWindow==',clients.openWindow);
     if (clients.openWindow) {
-      console.log('in last if, url==',clients.url);
       return clients.openWindow('/push');
     }
   }));
