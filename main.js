@@ -214,7 +214,8 @@ window.addEventListener('load', function() {
   // enhance and add push messaging support, otherwise continue without it.
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
-    .then(function(err){alert(err);});
+    .then(function(reg){alert("reg=="+reg);},
+    function(err){alert(err);});
   } else {
     window.Demo.debug.log('Service workers aren\'t supported in this browser.');
   }
