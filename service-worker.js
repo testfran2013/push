@@ -29,15 +29,13 @@ self.addEventListener('notificationclick', function(event) {
   event.waitUntil(clients.matchAll({
     type: "window"
   }).then(function(clientList) {
-    console.log('clientList.length ==',clientList.length);
     for (var i = 0; i < clientList.length; i++) {
       var client = clientList[i];
-      console.log('client.url ==',client.url);
       if (client.url == '/' && 'focus' in client)
         return client.focus();
     }
     if (clients.openWindow)
-      return clients.openWindow('/');
+      return clients.openWindow('/push');
   }));
 
 });
