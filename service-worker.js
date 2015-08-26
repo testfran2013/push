@@ -29,6 +29,7 @@ self.addEventListener('notificationclick', function(event) {
   event.waitUntil(clients.matchAll({
     type: "window"
   }).then(function(clientList) {
+    alert("clientList.length =="+clientList.length);
     for (var i = 0; i < clientList.length; i++) {
       var client = clientList[i];
       alert("client.url =="+client.url);
